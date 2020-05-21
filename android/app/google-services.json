@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "1085013230881",
+    "firebase_url": "https://orderfood-b6e02.firebaseio.com",
+    "project_id": "orderfood-b6e02",
+    "storage_bucket": "orderfood-b6e02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085013230881:android:5112726a582ccb00b46a60",
+        "android_client_info": {
+          "package_name": "com.orderfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085013230881-qe6fk9s8p2r9i3tfmmnk6ggf26vnmu6u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.orderfood",
+            "certificate_hash": "fe71c7483953238e92495b8541d5018d1290ba2f"
+          }
+        },
+        {
+          "client_id": "1085013230881-hier2rs4f17c8s41brnsiah47u6ijltc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0VQui52zffNUOrRR2yW7jTTOogw-f8mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085013230881-hier2rs4f17c8s41brnsiah47u6ijltc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1085013230881-qc62u0jok776ld3e8tujod8uv3o1nd1m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tdc.edu.vn",
+                "app_store_id": "1234"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
