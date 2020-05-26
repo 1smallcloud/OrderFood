@@ -15,11 +15,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "1085013230881-qe6fk9s8p2r9i3tfmmnk6ggf26vnmu6u.apps.googleusercontent.com",
+          "client_id": "1085013230881-oue527ohp9nei0q7o5docmk7spq4i797.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.orderfood",
             "certificate_hash": "fe71c7483953238e92495b8541d5018d1290ba2f"
+          }
+        },
+        {
+          "client_id": "1085013230881-594ubk5d3ufjgim619q4v0qblpjjtq9r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.orderfood",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
           }
         },
         {

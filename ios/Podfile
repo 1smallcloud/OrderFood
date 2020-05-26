@@ -81,6 +81,8 @@ target 'OrderFood' do
 
   pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
 
+  pod 'RNFBAuth', :path => '../node_modules/@react-native-firebase/auth'
+
   target 'OrderFoodTests' do
     inherit! :complete
     # Pods for testing
