@@ -5,7 +5,6 @@ import { Button, TextBox } from '../components';
 import Styles from '../assets/css';
 import Variables from '../assets/css/variables';
 
-import firebase from 'react-native-firebase';
 import auth from '@react-native-firebase/auth';
 // export default function LoginScreen () {
 //     // constructor(props) {

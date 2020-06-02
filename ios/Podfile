@@ -77,11 +77,11 @@ target 'OrderFood' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
 
   pod 'RNFBAuth', :path => '../node_modules/@react-native-firebase/auth'
+
 
   target 'OrderFoodTests' do
     inherit! :complete

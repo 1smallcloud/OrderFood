@@ -189,8 +189,8 @@ android {
 }
 
 dependencies {
-    // implementation project(':react-native-firebase')
     implementation project(path: ":@react-native-firebase_auth")
+    
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
