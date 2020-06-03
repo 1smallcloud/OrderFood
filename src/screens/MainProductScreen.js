@@ -1,59 +1,55 @@
 
 import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet,
-  Dimensions,
-  Animated,
-  Text,
-  StatusBar
-} from 'react-native';
+import { View, StyleSheet, Dimensions, Animated, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { TabBar, TabView } from 'react-native-tab-view';
 import ContactsList from '../components/product/ItemProduct';
+import Variables from '../assets/css/variables';
+import Styles from '../assets/css';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const DATA_FIRST = [
     {
-        title: 'Món được yêu thích',
-        data: [
-            {
-                id: 1,
-                name: '7 ngày Cà phê sữa đá',
-                id_category: 'C001',
-                category: 'Phổ biến',
-                type: 'Món được yêu thích',
-                price: 175000,
-                image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
-            },
-            {
-                id: 2,
-                name: '5 ngày Cà phê sữa đá ',
-                id_category: 'C001',
-                category: 'Phổ biến',
-                type: 'Món được yêu thích',
-                price: 135000,
-                image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
-            },
-            {
-                id: 3,
-                name: '3 ngày Cà phê sữa đá ',
-                id_category: 'C001',
-                category: 'Phổ biến',
-                type: 'Món được yêu thích',
-                price: 90000,
-                image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
-            },
-            {
-                id: 4,
-                name: 'Trà Gần Nhau Hơn',
-                id_category: 'C002',
-                category: 'Phổ biến',
-                type: 'Món được yêu thích',
-                price: 90000,
-                image: 'https://product.hstatic.net/1000075078/product/tra_gan_nhau_hon_48d1acc909f847eaab12f760ef3892ba_large.jpg'
-            }
-        ]
-    }
+      title: 'Món được yêu thích',
+      data: [
+        {
+            id: 1,
+            name: '7 ngày Cà phê sữa đá',
+            id_category: 'C001',
+            category: 'Phổ biến',
+            type: 'Món được yêu thích',
+            price: 175000,
+            image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
+          },
+          {
+            id: 2,
+            name: '5 ngày Cà phê sữa đá ',
+            id_category: 'C001',
+            category: 'Phổ biến',
+            type: 'Món được yêu thích',
+            price: 135000,
+            image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
+          },
+          {
+            id: 3,
+            name: '3 ngày Cà phê sữa đá ',
+            id_category: 'C001',
+            category: 'Phổ biến',
+            type: 'Món được yêu thích',
+            price: 90000,
+            image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
+          },
+          {
+            id: 4,
+            name: 'Trà Gần Nhau Hơn',
+            id_category: 'C002',
+            category: 'Phổ biến',
+            type: 'Món được yêu thích',
+            price: 90000,
+            image: 'https://product.hstatic.net/1000075078/product/tra_gan_nhau_hon_48d1acc909f847eaab12f760ef3892ba_large.jpg'
+          }
+      ]
+    },
 ];
 
 const DATA_SECOND = [
@@ -149,9 +145,6 @@ const initialLayout = {
   width: Dimensions.get('window').width,
 };
 
-const HEADER_HEIGHT = 20;
-const COLLAPSED_HEIGHT =  StatusBar.currentHeight;
-const SCROLLABLE_HEIGHT = HEADER_HEIGHT - COLLAPSED_HEIGHT;
 export default class TabViewNew extends Component {
   constructor(props) {
     super(props);
@@ -169,28 +162,33 @@ export default class TabViewNew extends Component {
 
   _handleIndexChange = (index) => {
     this.setState({ index });
+    console.log(index);
   };
 
   _renderTabBar  = (props) => {
+    const { navigate } = this.props.navigation;
     return (
-      <View style={{ position: 'relative' }}>
+      <View style={styles.coverTabbar}>
        <TabBar
        {...props}
        style={styles.tabbar}
-       tabStyle={{ width: initialLayout.width/4 }}
-       indicatorStyle={{ backgroundColor: "orange", width: initialLayout.width/4, justifyContent: 'center' }}
+       tabStyle={styles.tabStyle}
+       indicatorStyle={styles.indicator}
        renderLabel={({ route, focused, color }) => (
-              <Text style={{ color, margin: 8 }}>
-                  {route.title}
-              </Text>
+            <Text style={styles.labelCategory}>
+                {route.title}
+            </Text>
           )}
-          activeColor={'#000000'}
-          inactiveColor={'#333333'}
+          activeColor={Variables.Colors.BLACK}
+          inactiveColor={Variables.Colors.BLACK_LIGHT}
        />
-       <View style={{ position: 'absolute', top: 15, right: initialLayout.width/8, zIndex: 1, color: '#333333' }}>
-         <Icon name="ios-search" type='ionicon'/>
+       
+        <View style={styles.coverIcon}>
+          <TouchableOpacity onPress={() => navigate('Search')}>
+            <Icon name="ios-search" type='ionicon'/>
+          </TouchableOpacity>
         </View>
-       </View>
+      </View>
     );
   };
 
@@ -203,7 +201,6 @@ export default class TabViewNew extends Component {
           [{ nativeEvent: { contentOffset: { y: this.state.scroll } } }],
           { useNativeDriver: true }
         )}
-        contentContainerStyle={{ paddingTop: HEADER_HEIGHT }}
       />
       
     );
@@ -228,8 +225,31 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   tabbar: {
-    backgroundColor: '#fff',
+    backgroundColor: Variables.Colors.WHITE,
     elevation: 0,
     shadowOpacity: 0
   },
+  coverTabbar: {
+    position: 'relative'
+  },
+  tabStyle: {
+    width: Variables.WIDTH/3.4,
+  },
+  indicator: {
+    backgroundColor: Variables.Colors.ORANGE,
+    width: Variables.WIDTH/3.4,
+    justifyContent: 'center'
+  },
+  coverIcon: {
+    position: 'absolute',
+    top: Variables.HEIGHT/40,
+    right: Variables.WIDTH/20,
+    zIndex: 1,
+    color: Variables.Colors.BLACK_LIGHT,
+  },
+  labelCategory: {
+    ...Styles.mt_sm,
+    ...Styles.mb_sm,
+    ...Styles.TextDefault
+  }
 });

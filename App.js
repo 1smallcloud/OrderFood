@@ -1,19 +1,26 @@
 import * as React from 'react';
-import Login from './src/screens/LoginScreen';
-import ItemProduct from './src/components/product/ItemProductComponent';
-import ListProduct from './src/screens/ListProductScreen';
-import TabView from './src/screens/TestScreen';
-import MainProduct from './src/screens/MainProductScreen';
-import Search from './src/screens/SearchScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+import LoginScreen from './src/screens/LoginScreen';
+import MainProductScreen from './src/screens/MainProductScreen';
+import SearchScreen from './src/screens/SearchScreen';
+import MapScreen from './src/screens/MapScreen';
 
-  render() {
-    return(
-      <Search />
-    );
-  }
+const Stack = createStackNavigator();
+export default function App () {
+  return (
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName="LoginScreen"
+    //   screenOptions={{
+    //     headerShown: false
+    //   }}
+    //   >
+    //     <Stack.Screen name="Login" component={LoginScreen} />
+    //     <Stack.Screen name="MainProduct" component={MainProductScreen} />
+    //     <Stack.Screen name="Search" component={SearchScreen} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    <SearchScreen />
+  );
 }

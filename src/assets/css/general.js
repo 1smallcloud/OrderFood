@@ -4,7 +4,7 @@ import Variables from './variables';
 export const TextDefault = {
     color: Variables.Colors.TEXT,
     fontSize: Variables.FontSizes.Text,
-    fontFamily: 'EB Garamond',
+    fontFamily: 'PTSerif-Regular',
     lineHeight: 24,
 }
 
@@ -17,14 +17,21 @@ export const TextTitle = {
 
 export const TextError = {
     fontSize: Variables.FontSizes.SuperSmallText,
-    fontFamily: 'EB Garamond',
+    fontFamily: 'PTSerif-Regular',
     color: Variables.Colors.RED,
 }
 
 export const TextLabel = {
     fontSize: Variables.FontSizes.SmallText,
     color: Variables.Colors.BLACK,
-    fontFamily: 'EB Garamond',
+    fontFamily: 'PTSerif-Bold',
+    lineHeight: 16,
+}
+
+export const TitleLabel = {
+    fontSize: Variables.FontSizes.Text,
+    color: Variables.Colors.BLACK,
+    fontFamily: 'PTSerif-Bold',
     lineHeight: 16,
 }
 
@@ -38,6 +45,7 @@ export default StyleSheet.create({
     TextTitle,
     TextError,
     TextLabel,
+    TitleLabel,
     Container,
     ...Variables.ArraySpacing,
     ...Variables.ArrayBtn,

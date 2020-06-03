@@ -12,49 +12,52 @@ import {
 import { Icon } from 'react-native-elements';
 import { TabBar, TabView } from 'react-native-tab-view';
 import ContactsList from '../components/product/ItemProduct';
+import { TextBox } from '../components';
+import Variables from '../assets/css/variables';
+import Styles from '../assets/css';
 import unorm from 'unorm';
 
 const DATA = [
-    {
-        "data": [
-            {
-                id: 1,
-                name: '7 ngày Cà phê sữa đá',
-                id_category: 'C001',
-                category: 'Phổ biến',
-                type: 'Món được yêu thích',
-                price: 175000,
-                image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
-            },
-            {
-                id: 2,
-                name: '5 ngày Cà phê sữa đá ',
-                id_category: 'C001',
-                category: 'Phổ biến',
-                type: 'Món được yêu thích',
-                price: 135000,
-                image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
-            },
-            {
-                id: 3,
-                name: '3 ngày Cà phê sữa đá ',
-                id_category: 'C001',
-                category: 'Phổ biến',
-                type: 'Món được yêu thích',
-                price: 90000,
-                image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
-            },
-            {
-                id: 4,
-                name: 'Trà Gần Nhau Hơn',
-                id_category: 'C002',
-                category: 'Phổ biến',
-                type: 'Món được yêu thích',
-                price: 90000,
-                image: 'https://product.hstatic.net/1000075078/product/tra_gan_nhau_hon_48d1acc909f847eaab12f760ef3892ba_large.jpg'
-            }
-        ]
-    }
+  {
+    "data": [
+        {
+            id: 1,
+            name: '7 ngày Cà phê sữa đá',
+            id_category: 'C001',
+            category: 'Phổ biến',
+            type: 'Món được yêu thích',
+            price: 175000,
+            image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
+        },
+        {
+            id: 2,
+            name: '5 ngày Cà phê sữa đá ',
+            id_category: 'C001',
+            category: 'Phổ biến',
+            type: 'Món được yêu thích',
+            price: 135000,
+            image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
+        },
+        {
+            id: 3,
+            name: '3 ngày Cà phê sữa đá ',
+            id_category: 'C001',
+            category: 'Phổ biến',
+            type: 'Món được yêu thích',
+            price: 90000,
+            image: 'https://tchmobileapp.s3.ap-southeast-1.amazonaws.com/menufrontend/5e819a19458e7100112c56fa_hinh%20app%203%20-%202.%20.jpg'
+        },
+        {
+            id: 4,
+            name: 'Trà Gần Nhau Hơn',
+            id_category: 'C002',
+            category: 'Phổ biến',
+            type: 'Món được yêu thích',
+            price: 90000,
+            image: 'https://product.hstatic.net/1000075078/product/tra_gan_nhau_hon_48d1acc909f847eaab12f760ef3892ba_large.jpg'
+        }
+    ]
+  }
 ];
 
 
@@ -62,8 +65,6 @@ const initialLayout = {
   height: 0,
   width: Dimensions.get('window').width,
 };
-
-const HEADER_HEIGHT = 20;
 
 export default class TabViewNew extends Component {
     constructor(props) {
@@ -90,7 +91,6 @@ export default class TabViewNew extends Component {
       return str;
     }
     
-
     SearchFilterFunction(text) {
         const searchText =this.nonAccentVietnamese(text);
         const newData = this.arrayholder.reduce((result, sectionData) => {
@@ -116,23 +116,23 @@ export default class TabViewNew extends Component {
   render() {
     return (
         <View>
-             <TextInput
+          <View style={styles.coverInput}>
+            <TextBox
                 style={styles.textInputStyle}
                 onChangeText={(text) => this.SearchFilterFunction(text)}
                 value={this.state.text}
-                underlineColorAndroid="transparent"
                 placeholder="Search Here"
             />
-
-            <ContactsList
-                sections={ this.state.dataSource }
-                scrollEventThrottle={1}
-                onScroll={Animated.event(
-                [{ nativeEvent: { contentOffset: { y: this.state.scroll } } }],
-                { useNativeDriver: true }
-                )}
-                contentContainerStyle={{ paddingTop: HEADER_HEIGHT }}
-            />
+          </View>
+             
+          <ContactsList
+              sections={ this.state.dataSource }
+              scrollEventThrottle={1}
+              onScroll={Animated.event(
+              [{ nativeEvent: { contentOffset: { y: this.state.scroll } } }],
+              { useNativeDriver: true }
+              )}
+          />
         </View>
     );
   }
@@ -155,4 +155,8 @@ const styles = StyleSheet.create({
       borderColor: '#009688',
       backgroundColor: '#FFFFFF',
     },
+    coverInput: {
+      ...Styles.ml_sm,
+      ...Styles.mr_sm,
+    }
   });
